@@ -3,7 +3,7 @@ Easy to use POST request body validator.
 
 ##### Example:
 
-```js
+```javascript
 const validator = require('./validator')
 const export_request = async (req, res) => {
     const userEmail = req.claims.UserName;
@@ -20,3 +20,4 @@ const export_request = async (req, res) => {
     }, payload);
     //...
 }
+```
