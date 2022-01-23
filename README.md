@@ -1,5 +1,5 @@
 # body-validator
-Easy to use POST request body validator.
+Easy to use JS POST's request body validator
 
 ##### Example:
 
