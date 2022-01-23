@@ -7,6 +7,10 @@ const isValidValue = (value, type) => {
     }
 }
 
+const addIfMissing = (fieldKey, fieldValue, fieldType, missingFieldsArray) => {
+    !isValidValue(fieldValue, fieldType) && missingFieldsArray.push(fieldKey);
+};
+
 function validateInput(schema, payload) {
     const validateResult = {};
 
@@ -17,12 +21,8 @@ function validateInput(schema, payload) {
     }
 
     const missingFields = [];
-    const addIfMissing = (fieldKey, fieldValue, fieldType) => {
-        !isValidValue(fieldValue, fieldType) && missingFields.push(fieldKey);
-    };
-
     Object.entries(schema).forEach(([fieldName, fieldValue]) => {
-        addIfMissing(fieldName, payload[fieldName], fieldValue.type);
+        addIfMissing(fieldName, payload[fieldName], fieldValue.type, missingFields);
     });
 
     validateResult.isValid = !(missingFields.length > 0);
