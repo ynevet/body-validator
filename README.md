@@ -18,6 +18,12 @@ const export_request = async (req, res) => {
         'to': {'type': 'String'},
         'mode': {'type': 'String'}
     }, payload);
+    
+    if (!validationResult.isValid) {
+        return res.status(400).json({
+            message: `input validation error, ${validationResult.message}`
+        })
+    }
     //...
 }
 ```
