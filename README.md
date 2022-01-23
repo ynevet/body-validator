@@ -1,7 +1,7 @@
 # body-validator
 Easy to use JS POST's request body validator
 
-##### Example:
+##### Usage Example:
 
 ```javascript
 const validator = require('./validator')
